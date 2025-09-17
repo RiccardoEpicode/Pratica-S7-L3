@@ -5,10 +5,14 @@ let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
 fetch("https://striveschool-api.herokuapp.com/books")
   .then((res) => {
+    console.log("response: ", res);
+
     if (!res.ok) throw new Error("Errore nella fetch");
     return res.json();
   })
   .then((books) => {
+    console.log("books: ", books);
+
     books.forEach((book) => {
       const col = document.createElement("div");
       col.classList.add("col-12", "col-md-6", "col-lg-3");
